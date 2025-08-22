@@ -1,0 +1,76 @@
+version: '3.8'
+
+services:
+  # API服务容器
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile.api
+    container_name: price-data-api
+    ports:
+      - "8000:8000"
+    environment:
+      - DATABASE_URL=mysql+pymysql://root:password@192.168.1.6:3306/xinfadi_prices
+      - API_HOST=0.0.0.0
+      - API_PORT=8000
+    volumes:
+      - ./data:/app/data
+      - ./logs:/app/logs
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    networks:
+      - price-data-network
+
+  # 爬虫服务容器
+  scraper:
+    build:
+      context: .
+      dockerfile: Dockerfile.scraper
+    container_name: price-data-scraper
+    environment:
+      - DATABASE_URL=mysql+pymysql://root:password@192.168.1.6:3306/xinfadi_prices
+      - TZ=Asia/Shanghai
+    volumes:
+      - ./data:/app/data
+      - ./logs:/app/logs
+      - /var/log:/var/log
+    restart: unless-stopped
+    networks:
+      - price-data-network
+
+  # 视频生成服务容器 (Video Generator Service)
+  # Runs Next.js development server with Remotion for video generation
+  # Accessible at http://localhost:3005
+  video-generator:
+    build:
+      context: ./video-generator
+      dockerfile: Dockerfile
+    container_name: price-data-video-generator
+    ports:
+      - "3100:3000"
+    environment:
+      - NODE_ENV=development
+      - NEXT_TELEMETRY_DISABLED=1
+      - API_URL=http://api:8000
+    volumes:
+      - ./video-generator:/app
+      - /app/node_modules
+      - ./data/output:/app/output
+    restart: unless-stopped
+    networks:
+      - price-data-network
+
+volumes:
+  data:
+    driver: local
+  logs:
+    driver: local
+
+networks:
+  price-data-network:
+    driver: bridge

@@ -1,0 +1,30 @@
+__pycache__
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+video-generator/node_modules
+video-generator/.pnp
+video-generator.pnp.js
+video-generator/coverage
+video-generator/.next/
+video-generator/out/
+video-generator/build
+video-generator.DS_Store
+video-generator*.pem
+video-generatornpm-debug.log*
+video-generatoryarn-debug.log*
+video-generatoryarn-error.log*
+video-generator.pnpm-debug.log*
+video-generator.env*.local
+video-generator.vercel
+video-generator*.tsbuildinfo
+video-generatornext-env.d.ts
+video-generatorout/
+video-generatoroutput/
+video-generator.env
+video-generatorbuild
+
+data/
+logs/
+chrome-headless-shell-linux64.zip
+node_modules
