@@ -61,6 +61,8 @@ services:
       - ./video-generator:/app
       - /app/node_modules
       - ./data/output:/app/output
+      - ./chrome-headless-shell-linux64:/app/node_modules/.remotion/chrome-headless-shell/linux64/chrome-headless-shell-linux64
+
     restart: unless-stopped
     networks:
       - price-data-network

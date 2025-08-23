@@ -73,7 +73,7 @@ export async function POST(request: NextRequest) {
     console.log(`⏱️  视频时长: ${durationInSeconds} 秒`);
 
     // 确保输出目录存在
-    const outputDir = join(process.cwd(), 'output');
+    const outputDir = join(process.cwd(), 'output', targetDate);
     await mkdir(outputDir, { recursive: true });
 
     // 打包Remotion项目
