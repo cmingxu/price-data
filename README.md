@@ -4,7 +4,7 @@ A comprehensive system for scraping agricultural product price data from Xinfadi
 
 ## Demo
 
-[Click to watch demo](https://raw.githubusercontent.com/cmingxu/price-data/main/)
+[Click to watch demo](https://github.com/cmingxu/price-data/raw/refs/heads/main/video-generate/price-video-2025-08-24-09-03-47-519Z-%E6%B0%B4%E6%9E%9C.mp4)
 
 ## 🏗️ Project Structure
 
