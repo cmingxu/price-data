@@ -2,6 +2,10 @@
 
 A comprehensive system for scraping agricultural product price data from Xinfadi market, with automated data processing and video generation capabilities.
 
+## Demo
+
+[Click to watch demo](https://raw.githubusercontent.com/cmingxu/price-data/main/)
+
 ## 🏗️ Project Structure
 
 This project consists of two main components:

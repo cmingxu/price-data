@@ -61,6 +61,27 @@ export const TitlePage: React.FC<TitlePageProps> = ({ title }) => {
         fontFamily: '"Noto Sans CJK SC", "WenQuanYi Zen Hei", system-ui, -apple-system, sans-serif',
       }}
     >
+      <div style={{
+        position: 'absolute',
+        top: '20%',
+        left: '50%',
+        transform: 'translate(-50%, -50%) skew(-10deg)',
+        border: '4px solid #000',
+        textAlign: 'center',
+        fontSize: '24px',
+        color: 'red',
+        backgroundColor: 'yellow',
+        padding: '30px 42px',
+        borderRadius: '12px',
+        opacity: 1,
+        fontWeight: 'bold',
+        fontFamily: 'Arial, sans-serif',
+        fontStyle: 'normal',
+        fontSize: '6em',
+        letterSpacing: '0.1em',
+      }}>
+        { title }
+      </div>
       {/* 装饰性背景元素 - 适配移动端 */}
       <div
         style={{

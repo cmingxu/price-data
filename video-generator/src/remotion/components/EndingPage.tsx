@@ -174,7 +174,7 @@ export const EndingPage: React.FC = () => {
           lineHeight: '1.4',
         }}
       >
-        专业数据服务提供商
+        专业数据服务提供商(私信获取数据服务)
       </p>
       
       {/* 底部装饰线 */}

@@ -32,7 +32,7 @@ export const VIDEO_FPS = 30;
 // 时间配置（以帧为单位）
 export const TITLE_DURATION = 2 * VIDEO_FPS; // 2秒标题
 export const DATA_PAGE_DURATION = 5 * VIDEO_FPS; // 每页数据5秒
-export const ENDING_DURATION = 3 * VIDEO_FPS; // 3秒结尾
+export const ENDING_DURATION = 5 * VIDEO_FPS; // 3秒结尾
 
 // 每页显示的数据条数
 export const ITEMS_PER_PAGE = 15;

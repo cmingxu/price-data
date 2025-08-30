@@ -27,14 +27,21 @@ export const PriceVideo: React.FC<PriceVideoProps> = ({ title, priceData }) => {
     }
     return pages;
   }, [priceData]);
-  
   const totalDataDuration = dataPages.length * DATA_PAGE_DURATION;
-  
   // BGM循环设置 - 假设BGM长度为30秒
-  const bgmDurationSeconds = 30;
+  const bgmDurationSeconds = 14;
   const bgmDurationFrames = bgmDurationSeconds * fps;
   const videoDurationSeconds = durationInFrames / fps;
   const loopCount = Math.ceil(videoDurationSeconds / bgmDurationSeconds);
+  
+  console.log('PriceVideo 渲染: ', {
+    title,
+    totalItems: priceData.length,
+    totalPages: dataPages.length,
+    videoDurationSeconds,
+    bgmDurationSeconds,
+    loopCount,
+  });
   
   return (
     <AbsoluteFill>
@@ -47,7 +54,7 @@ export const PriceVideo: React.FC<PriceVideoProps> = ({ title, priceData }) => {
         >
           <Audio
             src={staticFile('bgm.mp3')}
-            volume={0.3}
+            volume={0.2}
           />
         </Sequence>
       ))}
@@ -65,6 +72,7 @@ export const PriceVideo: React.FC<PriceVideoProps> = ({ title, priceData }) => {
           durationInFrames={DATA_PAGE_DURATION}
         >
           <DataPage
+            title={title}
             data={pageData}
             pageNumber={index + 1}
             totalPages={dataPages.length}

@@ -2,11 +2,14 @@ import React from 'react';
 import { AbsoluteFill, interpolate, useCurrentFrame } from 'remotion';
 import { PriceChangeData, formatPriceChange } from '../../lib/api';
 import { DATA_PAGE_DURATION } from '../../../types/constants';
+import { Img, staticFile } from "remotion";
+
 
 interface DataPageProps {
   data: PriceChangeData[];
   pageNumber: number;
   totalPages: number;
+  title?: string;
 }
 
 export const DataPage: React.FC<DataPageProps> = ({ data, pageNumber, totalPages }) => {
@@ -53,7 +56,6 @@ export const DataPage: React.FC<DataPageProps> = ({ data, pageNumber, totalPages
     <AbsoluteFill
       style={{
         background: 'linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%)',
-        padding: '40px 30px',
         fontFamily: '"Noto Sans CJK SC", "WenQuanYi Zen Hei", system-ui, -apple-system, sans-serif',
         opacity: pageOpacity,
       }}
@@ -64,10 +66,10 @@ export const DataPage: React.FC<DataPageProps> = ({ data, pageNumber, totalPages
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
-          marginBottom: '40px',
           textAlign: 'center',
         }}
       >
+        <Img src={staticFile('vege.jpg')} alt="Logo" style={{ width: '100%', height: '180px', objectFit: 'cover' }} />
         <h2
           style={{
             fontSize: '48px',
@@ -90,28 +92,17 @@ export const DataPage: React.FC<DataPageProps> = ({ data, pageNumber, totalPages
             textShadow: '0 4px 8px rgba(74, 144, 226, 0.3)',
           }}
         >
-          农产品价格行情
+          更多价格信息请留言
         </h2>
-        <div
-          style={{
-            fontSize: '24px',
-            color: '#4a5568',
-            background: 'rgba(255, 255, 255, 0.8)',
-            padding: '8px 16px',
-            borderRadius: '15px',
-            boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)',
-          }}
-        >
-          {pageNumber} / {totalPages}
-        </div>
       </div>
       
       {/* 表格容器 */}
       <div
         style={{
-          background: 'rgba(255, 255, 255, 0.95)',
-          borderRadius: '20px',
-          boxShadow: '0 8px 32px rgba(0, 0, 0, 0.1)',
+          background: 'gray',
+          borderRadius: '0px',
+
+          padding: '40px 30px',
           overflow: 'hidden',
         }}
       >
